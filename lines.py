@@ -5,27 +5,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #region algorithm
-ox = 0.0
-oy = 0.0
+x_o = 0.0
+y_o = 0.0
 count = 5000 
 offset = 0.001 
-tau = (1+5**0.5)/2.0 # golden ratio approx = 1.618033989
-inc = (2-tau)*2*np.pi + offset
-theta = 0
+golden_ratio = (1+5**0.5)/2.0 # golden_ratio approx = 1.618033989
+angle_i = (2-golden_ratio)*2*np.pi + offset
+angle = 0
 k = 3.0
 scale = 1e-10
 x = []
 y = []
 for j in range(1,count+1):
     r = scale*j**k
-    theta += inc
-    x.append(ox + r*np.cos(theta))
-    y.append(oy + r*np.sin(theta))
+    angle += angle_i
+    x.append(x_o + r*np.cos(angle))
+    y.append(y_o + r*np.sin(angle))
 for j in range(1,count+1):
     r = scale*j**k
-    theta += inc
-    x.append(ox + r*np.cos(-theta))
-    y.append(oy + r*np.sin(-theta))
+    angle += angle_i
+    x.append(x_o + r*np.cos(-angle))
+    y.append(y_o + r*np.sin(-angle))
 
 path_list=[]
 s=100./34.
