@@ -1,8 +1,8 @@
 # Written by: Nick Gerend, @dataoutsider
 # Viz: "Windows to the Soul", enjoy!
 
-import numpy as np
-import matplotlib.pyplot as plt
+from math import pi, sin, cos
+#import matplotlib.pyplot as plt
 
 #region algorithm
 x_o = 0.0
@@ -10,7 +10,7 @@ y_o = 0.0
 count = 5000 
 offset = 0.001 
 golden_ratio = (1+5**0.5)/2.0 # golden_ratio approx = 1.618033989
-angle_i = (2-golden_ratio)*2*np.pi + offset
+angle_i = (2-golden_ratio)*2*pi + offset
 angle = 0
 k = 3.0
 scale = 1e-10
@@ -19,13 +19,13 @@ y = []
 for j in range(1,count+1):
     r = scale*j**k
     angle += angle_i
-    x.append(x_o + r*np.cos(angle))
-    y.append(y_o + r*np.sin(angle))
+    x.append(x_o + r*cos(angle))
+    y.append(y_o + r*sin(angle))
 for j in range(1,count+1):
     r = scale*j**k
     angle += angle_i
-    x.append(x_o + r*np.cos(-angle))
-    y.append(y_o + r*np.sin(-angle))
+    x.append(x_o + r*cos(-angle))
+    y.append(y_o + r*sin(-angle))
 
 path_list=[]
 s=100./34.
